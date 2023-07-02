@@ -2,7 +2,7 @@
 
 单值
 
-包括java基本数据类型对象:@Boolean,@Byte,@Short,@Integer,@Long,@Float,@Double,@Character和@String字符串类，及定义在包名路径下configpath目录下继承com.deepindex.configset.ConfigParser.Config类的自定义子类，自定义子类可以嵌套使用上述基本类型和String类型，及自定义类型。
+包括java基本数据类型对象:@Boolean,@Byte,@Short,@Integer,@Long,@Float,@Double,@Character和@String字符串类，及定义在包名路径下attributepath目录下继承com.deepindex.attributeset.AttributeParser.Attribute类的自定义子类，自定义子类可以嵌套使用上述基本类型和String类型，及自定义类型。
 
 列表
 
@@ -17,42 +17,42 @@
 
 XML配置
 
-    <config key="key0" type="boolean" value="true" />
+    <attribute key="key0" type="boolean" value="true" />
 
 code（fileName为XML配置文件名）
 
-    ConfigCollection configCollection = new ConfigCollection();
-    ConfigParser parser = new ConfigParser(context, configCollection);
+    AttributeCollection attributeCollection = new AttributeCollection();
+    AttributeParser parser = new AttributeParser(context, attributeCollection);
     try (InputStream inputStream = new ByteArrayInputStream(
             fileName.getBytes(StandardCharsets.UTF_8))) {
         parser.parse(inputStream);
     } catch (IOException | XmlPullParserException e) {
-        Log.e("ConfigCollection", "parse error", e);
+        Log.e("AttributeCollection", "parse error", e);
     }
 
     //true
-    boolean value = configCollection.getBoolean("key0");
+    boolean value = attributeCollection.getBoolean("key0");
 
 
 XML配置
 
-    <config_list key="key1" type="String" >
+    <attribute_list key="key1" type="String" >
       <sub value="hello" />
       <sub value="world" />
-    </config_list>
+    </attribute_list>
 
 code（fileName为XML配置文件名）
 
-    ConfigCollection configCollection = new ConfigCollection();
-    ConfigParser parser = new ConfigParser(context, configCollection);
+    AttributeCollection attributeCollection = new AttributeCollection();
+    AttributeParser parser = new AttributeParser(context, attributeCollection);
     try (InputStream inputStream = new ByteArrayInputStream(
             fileName.getBytes(StandardCharsets.UTF_8))) {
         parser.parse(inputStream);
     } catch (IOException | XmlPullParserException e) {
-        Log.e("ConfigCollection", "parse error", e);
+        Log.e("AttributeCollection", "parse error", e);
     }
 
-    ArrayList<String> list = configCollection.getStringArrayList("key1");
+    ArrayList<String> list = attributeCollection.getStringArrayList("key1");
     //hello
     String value = list.get(0);
     //world
@@ -61,23 +61,23 @@ code（fileName为XML配置文件名）
     
 XML配置
 
-    <config_map key="key2" type="int" >
+    <attribute_map key="key2" type="int" >
         <sub key="subkey1" value="11" />
         <sub key="subkey2" value="22" />
-    </config_map>
+    </attribute_map>
 
 code（fileName为XML配置文件名）
 
-    ConfigCollection configCollection = new ConfigCollection();
-    ConfigParser parser = new ConfigParser(context, configCollection);
+    AttributeCollection attributeCollection = new AttributeCollection();
+    AttributeParser parser = new AttributeParser(context, attributeCollection);
     try (InputStream inputStream = new ByteArrayInputStream(
             fileName.getBytes(StandardCharsets.UTF_8))) {
         parser.parse(inputStream);
     } catch (IOException | XmlPullParserException e) {
-        Log.e("ConfigCollection", "parse error", e);
+        Log.e("AttributeCollection", "parse error", e);
     }
 
-    ArrayMap<String, Integer> map = configCollection.getIntegerArrayMap("key2");
+    ArrayMap<String, Integer> map = attributeCollection.getIntegerArrayMap("key2");
     //11
     int value = map.get("subkey1");
     //22
@@ -86,23 +86,23 @@ code（fileName为XML配置文件名）
 
 XML配置
 
-    <config_map key="key4" type="PersonConfig" >
+    <attribute_map key="key4" type="PersonAttribute" >
         <sub key="subkey1" name="li" age="20" high="180" weight="70" />
         <sub key="subkey2" name="wang" age="21" high="185" weight="80" />
-    </config_map>
+    </attribute_map>
 
 code（fileName为XML配置文件名）
 
-	public class PersonConfig extends Config {
+	public class PersonAttribute extends Attribute {
 		private String mName;
 		private int mAge;
 		private int mHigh;
 		private int mWeight;
 
-		public PersonConfig() {
+		public PersonAttribute() {
 		}
 
-		public PersonConfig(String name, int age, int high, int weight) {
+		public PersonAttribute(String name, int age, int high, int weight) {
 			mName = name;
 			mAge = age;
 			mHigh = high;
@@ -143,17 +143,17 @@ code（fileName为XML配置文件名）
 	}
 
 
-    ConfigCollection configCollection = new ConfigCollection();
-    ConfigParser parser = new ConfigParser(context, configCollection);
+    AttributeCollection attributeCollection = new AttributeCollection();
+    AttributeParser parser = new AttributeParser(context, attributeCollection);
     try (InputStream inputStream = new ByteArrayInputStream(
             fileName.getBytes(StandardCharsets.UTF_8))) {
         parser.parse(inputStream);
     } catch (IOException | XmlPullParserException e) {
-        Log.e("ConfigCollection", "parse error", e);
+        Log.e("AttributeCollection", "parse error", e);
     }
 
-    ArrayMap<String, PersonConfig> map = configCollection.getConfigArrayMap("key4");
-    PersonConfig value = map.get("subkey1");
+    ArrayMap<String, PersonAttribute> map = attributeCollection.getAttributeArrayMap("key4");
+    PersonAttribute value = map.get("subkey1");
     <sub key="subkey1" name="li" age="20" high="180" weight="70" />
     <sub key="subkey2" name="wang" age="21" high="185" weight="80" />
     //li
@@ -165,5 +165,5 @@ code（fileName为XML配置文件名）
     //70
     int weight = value.getWeight();
 
-更多例子可以参考assets文件夹下configtest.xml
+更多例子可以参考assets文件夹下attributetest.xml
 
