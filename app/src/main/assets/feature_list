@@ -1,0 +1,51 @@
+目标：
+提供一个支持单值，列表，键值对配置的功能模块
+通过唯一标记值@key获取配置，配置支持
+java基本数据类对象类型@Boolean,@Byte,@Short,@Integer,@Long,@Float,@Double,@Character和@String字符串类，
+以及定义在包名路径下attributepath目录下继承attribute类的自定义子类，自定义子类可以嵌套使用上述类类型。
+
+通过AttributeParser对配置xml文件进行解析，解析结果存入BaseCollection类中，通过BaseCollection类获取所有配置信息。
+支持文件字符流和XmlPullParser2种方式输入xml配置进行解析
+
+unique tag
+uniqueTag
+
+解析器只返回解析结果，不处理解析数据的存储，职责分离
+
+
+AttributeParser解析指定文件，并且将解析结果存入Attribute类中。
+Attribute存储数据，不需要知道数据是从哪里获取的。
+
+
+每个xml默认解析所有支持@key值，赠删改查？
+
+//面向对象的xml解析器，所有的xml解析结果全部是对象，从xml获取的结果为对象
+
+1：需要有属性配置核查的代码
+//每个属性都需要不能失败
+//存在以下可能:
+
+//每个属性都需要不能失败,需要有属性配置核查的代码
+//存在以下可能:
+// name="li" age="20" high="180"
+//
+//1,属性完全匹配set函数数量:setName, setAge, setHigh
+// ----true
+
+//2,属性多于set函数数量:setName, setAge
+// ----true, 旧版本代码下发名单，需要有提醒，某个属性值没有被设置
+
+//3,属性少于set函数数量:setName, setAge, setHigh, setWeigh
+// ----true　兼容版本代码下发名单，存在废弃函数，需要有提醒，某个设值函数没有被设值
+
+//4,属性名称不匹配set函数:setName1, setAge, setHigh
+// ----true　兼容版本代码下发名单，存在废弃函数，需要有提醒，某个设值函数没有被设值
+//,某个属性值没有被设置
+
+//5,属性名称存在2个以上匹配set函数:setName(int, setName(long
+// ----true　　兼容版本代码下发名单，存在废弃函数，需要有提醒，某个设值函数没有被设值
+//,同函数名函数，需要有提醒调用失败
+
+//存在匹配至则设置
+//6,没有匹配的:setName1, setAge2, setHigh3
+//---- false 兼容版本代码下发名单，存在废弃函数，需要有提醒，某个设值函数没有被设值

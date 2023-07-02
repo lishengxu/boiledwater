@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<attribute_info>
+  <!--one value -->
+  <attribute key="key1" type="String" value="value1"/>
+  <attribute key="key11" type="String" value="value1">
+  </attribute>
+
+  <attribute key="key2" type="int" value="1234" />
+  <attribute key="key4" type="PersonAttribute" name="li" age="20" high="180" weight="150" />
+  <attribute key="key44" type="PersonAttribute" name="wang" age="24" high="180" weight="150">
+  </attribute>
+
+  <!--list value -->
+  <attribute_list key="key21" type="String" >
+  </attribute_list>
+  <attribute_list key="key212" type="String" />
+  <attribute_list key="key22" type="String" >
+    <sub value="hello" />
+    <sub value="world" />
+  </attribute_list>
+
+  <attribute_list key="key23" type="int" >
+    <sub value="3" />
+    <sub value="4" />
+  </attribute_list>
+
+  <attribute_list key="key24" type="PersonAttribute" >
+    <sub name="li" age="20" high="180" weight="70" />
+    <sub name="wang" age="21" high="185" weight="80" />
+  </attribute_list>
+
+  <!--map value -->
+  <attribute_map key="key31" type="String" >
+  </attribute_map>
+  <attribute_map key="key312" type="String" />
+
+  <attribute_map key="key32" type="String" >
+    <sub key="subkey1" value="he li" />
+    <sub key="subkey2" value="he wang" />
+  </attribute_map>
+
+  <attribute_map key="key33" type="int" >
+    <sub key="subkey1" value="22" />
+    <sub key="subkey2" value="33" />
+  </attribute_map>
+
+  <attribute_map key="key34" type="PersonAttribute" >
+    <sub key="subkey1" name="li" age="20" high="180" weight="70" />
+    <sub key="subkey2" name="wang" age="21" high="185" weight="80" />
+  </attribute_map>
+
+  <!--nested value -->
+  <attribute key="key21" type="PersonAttribute" name="li" age="20" high="180" weight="150" >
+    <attribute function_name="setBoyFriend" type="PersonAttribute" name="li" age="24" high="175" weight="160" />
+  </attribute>
+
+  <attribute key="key12" type="PersonAttribute" name="li" age="20" high="180" weight="150" >
+    <attribute_list function_name="setColleagues" type="PersonAttribute" >
+      <sub name="li" age="24" high="175" weight="160" />
+      <sub name="yang" age="24" high="160" weight="120" />
+    </attribute_list>
+  </attribute>
+
+  <attribute key="key13" type="PersonAttribute" name="li" age="20" high="180" weight="150" >
+    <attribute_map function_name="setFriends" type="PersonAttribute" >
+      <sub key="subkey1" name="zhang" age="22" high="175" weight="160" />
+      <sub key="subkey2" name="qian" age="21" high="160" weight="120" />
+      <sub key="subkey3" name="zhou" age="21" high="160" weight="120" />
+    </attribute_map>
+  </attribute>
+
+  <attribute_list key="key14" type="PersonAttribute" >
+    <sub name="li" age="20" high="180" weight="70" >
+      <attribute function_name="setBoyFriend" type="PersonAttribute" name="li" age="24" high="175" weight="160" />
+    </sub>
+    <sub name="wang" age="21" high="185" weight="80" >
+      <attribute function_name="setBoyFriend" type="PersonAttribute" name="jiang" age="24" high="175" weight="160" />
+    </sub>
+  </attribute_list>
+
+  <attribute_list key="key15" type="PersonAttribute" >
+    <sub name="li" age="20" high="180" weight="70" >
+      <attribute_list function_name="setColleagues" type="PersonAttribute" >
+        <sub name="li" age="24" high="175" weight="160" />
+        <sub name="yang" age="24" high="160" weight="120" />
+      </attribute_list>
+    </sub>
+    <sub name="wang" age="21" high="185" weight="80" >
+      <attribute_list function_name="setColleagues" type="PersonAttribute" >
+        <sub name="li" age="24" high="175" weight="160" />
+        <sub name="yang" age="24" high="160" weight="120" />
+      </attribute_list>
+    </sub>
+  </attribute_list>
+
+  <attribute_list key="key16" type="PersonAttribute" >
+    <sub name="li" age="20" high="180" weight="70" >
+      <attribute_map function_name="setColleagues" type="PersonAttribute" >
+        <sub key="coll1" name="li" age="24" high="175" weight="160" />
+        <sub key="coll2" name="du" age="24" high="160" weight="120" />
+      </attribute_map>
+    </sub>
+    <sub name="wang" age="21" high="185" weight="80" >
+      <attribute_map function_name="setColleagues" type="PersonAttribute" >
+        <sub key="coll1" name="li" age="24" high="175" weight="160" />
+        <sub key="coll2" name="du" age="24" high="160" weight="120" />
+      </attribute_map>
+    </sub>
+  </attribute_list>
+
+  <attribute_map key="key17" type="PersonAttribute" >
+    <sub key="subkey1" name="li" age="20" high="180" weight="70" >
+      <attribute function_name="setBoyFriend" type="PersonAttribute" name="li" age="24" high="175" weight="160" />
+    </sub>
+    <sub key="subkey2" name="wang" age="21" high="185" weight="80" >
+      <attribute function_name="setBoyFriend" type="PersonAttribute" name="li" age="24" high="175" weight="160" />
+    </sub>
+  </attribute_map>
+
+  <attribute_map key="key18" type="PersonAttribute" >
+    <sub key="subkey1" name="li" age="20" high="180" weight="70" >
+      <attribute_list function_name="setColleagues" type="PersonAttribute" >
+        <sub name="li" age="24" high="175" weight="160" />
+        <sub name="yang" age="24" high="160" weight="120" />
+      </attribute_list>
+    </sub>
+    <sub key="subkey2" name="wang" age="21" high="185" weight="80" >
+      <attribute_list function_name="setColleagues" type="PersonAttribute" >
+        <sub name="li" age="24" high="175" weight="160" />
+        <sub name="yang" age="24" high="160" weight="120" />
+      </attribute_list>
+    </sub>
+  </attribute_map>
+
+  <attribute_map key="key19" type="PersonAttribute" >
+    <sub key="subkey1" name="li" age="20" high="180" weight="70" >
+      <attribute_map function_name="setColleagues" type="PersonAttribute" >
+        <sub key="coll1" name="li" age="24" high="175" weight="160" />
+        <sub key="coll2" name="du" age="24" high="160" weight="120" />
+      </attribute_map>
+    </sub>
+
+    <sub key="subkey2" name="wang" age="21" high="185" weight="80" >
+      <attribute_map function_name="setColleagues" type="PersonAttribute" >
+        <sub key="coll1" name="li" age="24" high="175" weight="160" />
+        <sub key="coll2" name="du" age="24" high="160" weight="120" />
+      </attribute_map>
+    </sub>
+  </attribute_map>
+
+  <attribute key="key20" type="PersonAttribute" name="li" age="20" high="180" weight="150" >
+    <attribute_list function_name="setColleagues" type="PersonAttribute" >
+      <sub name="li" age="24" high="175" weight="160" />
+      <sub name="yang" age="24" high="160" weight="120" />
+    </attribute_list>
+    <attribute_list function_name="setList" type="int" >
+      <sub value="10" />
+      <sub value="20" />
+    </attribute_list>
+  </attribute>
+
+  <attribute key="key21" type="PersonAttribute" name="li" age="20" high="180" weight="150" >
+    <attribute_list function_name="setFriends" type="PersonAttribute" >
+      <sub name="li" age="24" high="175" weight="160" >
+        <attribute_map function_name="setColleagues" type="PersonAttribute" >
+          <sub key="coll1" name="li" age="24" high="175" weight="160" />
+          <sub key="coll2" name="du" age="24" high="160" weight="120" />
+        </attribute_map>
+      </sub>
+      <sub name="wang" age="21" high="185" weight="80" >
+        <attribute_map function_name="setColleagues" type="PersonAttribute" >
+          <sub key="coll1" name="li" age="24" high="175" weight="160" />
+          <sub key="coll2" name="du" age="24" high="160" weight="120" />
+        </attribute_map>
+      </sub>
+    </attribute_list>
+  </attribute>
+</attribute_info>
